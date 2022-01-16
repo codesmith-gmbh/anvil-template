@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+
+clojure -Sdeps "{:deps {io.github.codesmith-gmbh/anvil-template {:local/root \"${SCRIPT_DIR}/..\"}} :aliases {:new {:ns-default org.corfield.new :deps {io.github.seancorfield/deps-new {:git/tag \"v0.4.9\" :git/sha \"ba30a76af8b42a45f8498a168bf89518a794fce5\"}}}}}" -T:new create :template ch.codesmith/anvil-template "$@"
