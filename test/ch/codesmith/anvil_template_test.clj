@@ -2,9 +2,9 @@
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.spec.alpha :as s]
-            [clojure.test :refer :all]
-            [org.corfield.new] ; for the Specs
-            [ch.codesmith.anvil-template :refer :all]))
+            [clojure.test :refer [deftest is testing]]
+            [org.corfield.new]                              ; for the Specs
+            [ch.codesmith.anvil-template]))
 
 (deftest valid-template-test
   (testing "template.edn is valid."
