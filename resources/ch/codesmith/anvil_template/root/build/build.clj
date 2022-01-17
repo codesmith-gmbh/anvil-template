@@ -4,7 +4,7 @@
             [ch.codesmith.anvil.shell :as sh]
             [clojure.tools.build.api :as b]))
 
-(def lib '{{group/id}} / {{artifact/id}})
+(def lib '{{group/id}}/{{artifact/id}})
 (def version (str "0.1." (b/git-count-revs {})))
 (def release-branch-name "main")
 #_(def docker-registry)
@@ -19,7 +19,7 @@
    :org-url        "https://codesmith.ch"})
 
 (defn verify [_]
-  (sh/sh! "./bin/verify"))
+  (sh/sh! "./build/verify"))
 
 ;; Choose the appropriate release function
 (comment
@@ -51,16 +51,16 @@
   (defn release "app with docker image"
     [_]
     (verify nil)
-    (let [{:keys [app-docker-tag] (apps/docker-generator {:lib              lib
-                                                          :version          version
-                                                          :target-dir       "target"
-                                                          :description-data description-data
-                                                          :java-runtime     {:version         :java17
-                                                                             :type            :jre
-                                                                             :modules-profile :java.base}
-                                                          :main-namespace   "hello"
-                                                          :aot              aot
-                                                          :docker-registry  docker-registry})}]
+    (let [{:keys [app-docker-tag]} (apps/docker-generator {:lib              lib
+                                                           :version          version
+                                                           :target-dir       "target"
+                                                           :description-data description-data
+                                                           :java-runtime     {:version         :java17
+                                                                              :type            :jre
+                                                                              :modules-profile :java.base}
+                                                           :main-namespace   "hello"
+                                                           :aot              aot
+                                                           :docker-registry  docker-registry})]
       (sh/sh! "./target/docker-app/docker-build.sh")
       (sh/sh! "./target/docker-app/docker-push.sh")
       (rel/git-release! {:deps/coord          lib
