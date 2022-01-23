@@ -1,6 +1,9 @@
-(ns {{top/ns}}.{{main/ns}})
+(ns {{top/ns}}.{{main/ns}}
+  (require [ch.codesmith.logger :as log]))
+
+(log/deflogger)
 
 (defn foo
   "I don't do a whole lot."
   [x]
-  (prn x "Hello, World!"))
+  (log/info-c "Hello, World! {}" :x x))
