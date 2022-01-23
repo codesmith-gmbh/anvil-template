@@ -28,7 +28,8 @@
     [_]
     (rel/git-release! {:deps-coords         lib
                        :version             version
-                       :release-branch-name "master"})
+                       :release-branch-name "master"
+                       :artifact-type       :deps})
     (verify nil))
 
   (defn release "library with clojars releases"
@@ -43,10 +44,10 @@
       (libs/deploy {:jar-file jar-file
                     :lib      lib
                     :pom-file "target/classes/META-INF/maven/{{group/id}}/{{artifact/id}}/pom.xml"})
-      (rel/git-release! {:deps/coord          lib
+      (rel/git-release! {:deps-coord          lib
                          :version             version
                          :release-branch-name release-branch-name
-                         :deps/manifest       :mvn})))
+                         :artifact-type       :mvn})))
 
   (defn release "app with docker image"
     [_]
@@ -63,13 +64,10 @@
                                                            :docker-registry  docker-registry})]
       (sh/sh! "./target/docker-app/docker-build.sh")
       (sh/sh! "./target/docker-app/docker-push.sh")
-      (rel/git-release! {:deps/coord          lib
+      (rel/git-release! {:deps-coord          lib
                          :version             version
                          :release-branch-name release-branch-name
-                         :update-for-release  (fn [_]
-                                                (throw (ex-info "Do something"
-                                                                {:with app-docker-tag})))
-                         :deps/manifest       :mvn})))
+                         :artifact-type       :docker-image})))
 
   )
 
