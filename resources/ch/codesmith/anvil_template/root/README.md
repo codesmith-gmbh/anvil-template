@@ -6,6 +6,28 @@
 
 FIXME: write usage documentation!
 
+FIXME: choose correct artifact section
+
+### for deps artifacts
+Include the following dependencies in your[deps.edn](https://clojure.org/reference/deps_and_cli):
+
+```
+io.github.codesmith-gmbh/anvil {:git/tag "v0.0.0" :git/sha "????"}
+```
+
+### for mvn artifacts
+Include the following dependencies in your[deps.edn](https://clojure.org/reference/deps_and_cli):
+
+```
+{{group/id}}/{{artifact/id}} {:mvn/version "0.0.0"}
+```
+
+### for docker artifacts
+
+```bash
+docker pull {{group/id}}/{{artifact/id}}:0.0.0
+```
+
 Invoke a library API function from the command-line:
 
     $ clojure -X {{top/ns}}.{{main/ns}}/foo :a 1 :b '"two"'
