@@ -1,5 +1,6 @@
 {:paths ["src" "resources"]
- :deps  {org.clojure/clojure {:mvn/version "1.10.3"}}
+ :deps  {org.clojure/clojure {:mvn/version "1.10.3"}
+         org.beryx/text-io   {:mvn/version "3.4.1"}}
  :aliases
  {:dev       {:extra-paths ["dev"]}
   :test      {:extra-paths ["test"]

@@ -27,3 +27,5 @@
 /target
 /*.iml
 /.idea
+/.m2
+/.gitlibs

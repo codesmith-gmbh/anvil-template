@@ -1,10 +1,23 @@
 {:paths ["src" "resources"]
- :deps  {org.clojure/clojure {:mvn/version "1.10.3"}
-         com.rpl/specter     {:mvn/version "1.1.3"}
-         ch.codesmith/logger {:mvn/version "0.6.66"}
-         ch.codesmith/blocks {:mvn/version "0.3.28"}}
+ :deps  {org.clojure/clojure {:mvn/version "1.11.1"}
+         com.rpl/specter     {:mvn/version "1.1.4"}
+         ch.codesmith/logger {:mvn/version "0.6.71"}
+         ch.codesmith/blocks {:mvn/version "0.5.34"}
+         ;ch.codesmith/blocks-xtdb {:mvn/version "0.5.34"}
+         ;ch.codesmith/blocks-postgres {:mvn/version "0.5.34"}
+         ;ch.codesmith/blocks-rabbitmq {:mvn/version "0.5.34"}
+         ;ch.codesmith/blocks-reitit {:mvn/version "0.5.34"}
+         ;ch.codesmith/blocks-aero {:mvn/version "0.5.34"}
+         ;ch.codesmith/blocks-httpkit {:mvn/version "0.5.34"}
+         }
  :aliases
- {:dev       {:extra-paths ["dev"]}
+ {:dev       {:extra-paths ["dev"]
+              :extra-deps {
+                           ;ch.codesmith/blocks-rabbitmq-dev {:mvn/version "0.5.34"}
+                           ;ch.codesmith/blocks-postgres-dev {:mvn/version "0.5.34"}
+                           ;ch.codesmith/blocks-reitit-dev {:mvn/version "0.5.34"}
+                           ;ch.codesmith/blocks-test-containers {:mvn/version "0.5.34"}
+                           }}
   :test      {:extra-paths ["test"]
               :extra-deps  {org.clojure/test.check {:mvn/version "1.1.1"}}}
   :runner    {:extra-deps {lambdaisland/kaocha {:mvn/version "1.60.977"}}
