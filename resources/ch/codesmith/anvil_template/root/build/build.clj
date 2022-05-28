@@ -11,15 +11,15 @@
 
 (def description-data
   {:license        :epl
-   :inception-year 2020
-   :description    "Utils on top of integrant"
-   :gh-project     "codesmith-gmbh/blocks"
-   :org-name       "Codesmith GmbH"
-   :authors        ["Stanislas Nanchen"]
-   :org-url        "https://codesmith.ch"})
-
-(defn verify [_]
-  (sh/sh! "./build/verify"))
+   :inception-year 2022
+   :description    "<description>"
+   :organization   {:name "Codesmith GmbH"
+                    :url  "https://codesmith.ch"}
+   :authors        [{:name  "Stanislas Nanchen"
+                     :email "stan@codesmith.ch"}]
+   :scm            {:type         :github
+                    :organization "<organisation>"
+                    :project      "{{artifact/id}}"}})
 
 ;; Choose the appropriate release function
 (comment

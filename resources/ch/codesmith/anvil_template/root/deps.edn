@@ -1,7 +1,7 @@
 {:paths ["src" "resources"]
  :deps  {org.clojure/clojure {:mvn/version "1.11.1"}
          com.rpl/specter     {:mvn/version "1.1.4"}
-         ch.codesmith/logger {:mvn/version "0.6.71"}
+         ch.codesmith/logger {:mvn/version "0.6.76"}
          ch.codesmith/blocks {:mvn/version "0.5.34"}
          ;ch.codesmith/blocks-xtdb {:mvn/version "0.5.34"}
          ;ch.codesmith/blocks-postgres {:mvn/version "0.5.34"}
@@ -11,22 +11,15 @@
          ;ch.codesmith/blocks-httpkit {:mvn/version "0.5.34"}
          }
  :aliases
- {:dev       {:extra-paths ["dev"]
-              :extra-deps {
-                           ;ch.codesmith/blocks-rabbitmq-dev {:mvn/version "0.5.34"}
-                           ;ch.codesmith/blocks-postgres-dev {:mvn/version "0.5.34"}
-                           ;ch.codesmith/blocks-reitit-dev {:mvn/version "0.5.34"}
-                           ;ch.codesmith/blocks-test-containers {:mvn/version "0.5.34"}
-                           }}
-  :test      {:extra-paths ["test"]
-              :extra-deps  {org.clojure/test.check {:mvn/version "1.1.1"}}}
-  :runner    {:extra-deps {lambdaisland/kaocha {:mvn/version "1.60.977"}}
-              :main-opts  ["-m" "kaocha.runner"]}
-  :build     {:replace-paths ["build"]
-              :replace-deps  {io.github.codesmith-gmbh/anvil {:git/tag "v0.4.93" :git/sha "66e8c9b"}}
-              :ns-default    build}
-  :outdated  {:replace-deps {com.github.liquidz/antq {:mvn/version "1.4.0"}
-                             org.slf4j/slf4j-simple  {:mvn/version "1.7.33"}}
-              :main-opts    ["-m" "antq.core"]}
-  :clj-kondo {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2022.01.15"}}
-              :main-opts    ["-m" "clj-kondo.main"]}}}
+ {:dev   {:extra-paths ["dev"]
+          :extra-deps  {
+                        ;ch.codesmith/blocks-rabbitmq-dev {:mvn/version "0.5.34"}
+                        ;ch.codesmith/blocks-postgres-dev {:mvn/version "0.5.34"}
+                        ;ch.codesmith/blocks-reitit-dev {:mvn/version "0.5.34"}
+                        ;ch.codesmith/blocks-test-containers {:mvn/version "0.5.34"}
+                        }}
+  :test  {:extra-paths ["test"]
+          :extra-deps  {org.clojure/test.check {:mvn/version "1.1.1"}}}
+  :build {:extra-paths ["build"]
+          :extra-deps  {io.github.codesmith-gmbh/anvil {:git/tag "v0.8.151" :git/sha "2cf7fd7"}}
+          :ns-default  build}}}
