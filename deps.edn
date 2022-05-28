@@ -2,14 +2,7 @@
  :deps  {org.clojure/clojure {:mvn/version "1.11.1"}
          org.beryx/text-io   {:mvn/version "3.4.1"}}
  :aliases
- {:dev       {:extra-paths ["dev"]}
-  :test      {:extra-paths ["test"]
-              :extra-deps  {org.clojure/test.check          {:mvn/version "1.1.1"}
-                            io.github.seancorfield/deps-new {:git/tag "v0.4.9" :git/sha "ba30a76"}}}
-  :runner    {:extra-deps {lambdaisland/kaocha {:mvn/version "1.66.1034"}}
-              :main-opts  ["-m" "kaocha.runner"]}
-  :outdated  {:replace-deps {com.github.liquidz/antq {:mvn/version "1.4.0"}
-                             org.slf4j/slf4j-simple  {:mvn/version "1.7.33"}}
-              :main-opts    ["-m" "antq.core"]}
-  :clj-kondo {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2022.01.15"}}
-              :main-opts    ["-m" "clj-kondo.main"]}}}
+ {:dev  {:extra-paths ["dev" "scripts"]}
+  :test {:extra-paths ["test"]
+         :extra-deps  {org.clojure/test.check          {:mvn/version "1.1.1"}
+                       io.github.seancorfield/deps-new {:git/tag "v0.4.9" :git/sha "ba30a76"}}}}}
