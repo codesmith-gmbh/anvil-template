@@ -5,4 +5,4 @@
  {:dev  {:extra-paths ["dev" "scripts"]}
   :test {:extra-paths ["test"]
          :extra-deps  {org.clojure/test.check          {:mvn/version "1.1.1"}
-                       io.github.seancorfield/deps-new {:git/tag "v0.4.9" :git/sha "ba30a76"}}}}}
+                       io.github.seancorfield/deps-new {:git/tag "v0.4.12" :git/sha "ba30a76"}}}}}
